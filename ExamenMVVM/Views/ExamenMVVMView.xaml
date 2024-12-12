@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:ExamenMVVM.ViewModels"
+             x:Class="ExamenMVVM.Views.MainPage">
+
+    <VerticalStackLayout>
+        <Label Text="Examen-MVVM | Wilmer Sanchez" FontSize="Title" HorizontalOptions="Center" Padding="30,10,30,10" />
+
+        <VerticalStackLayout Spacing="10">
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                <Label Grid.Column="0" Text="Producto 1" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Entry Grid.Column="1" Placeholder="Ingrese valor" Text="{Binding Product1}" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Producto 2" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Entry Grid.Row="1" Grid.Column="1" Placeholder="Ingrese valor" Text="{Binding Product2}" />
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Producto 3" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Entry Grid.Row="2" Grid.Column="1" Placeholder="Ingrese valor" Text="{Binding Product3}" />
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Subtotal" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Label Grid.Row="3" Grid.Column="1" Text="{Binding Subtotal, StringFormat='{0:C}'}" VerticalOptions="Center" />
+
+                <Label Grid.Row="4" Grid.Column="0" Text="Descuento" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Label Grid.Row="4" Grid.Column="1" Text="{Binding Discount, StringFormat='{0:C}'}" VerticalOptions="Center" />
+
+                <Label Grid.Row="5" Grid.Column="0" Text="Total" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Label Grid.Row="5" Grid.Column="1" Text="{Binding Total, StringFormat='{0:C}'}" TextColor="Yellow" VerticalOptions="Center" />
+
+                <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding ErrorMessage}" TextColor="Red" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+            </Grid>
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                <Button BackgroundColor="GreenYellow" Grid.Row="0" Grid.Column="1" Text="Calcular" Command="{Binding CalculateDiscountCommand}" />
+                <Label Grid.Row="1" Grid.Column="2" Text="" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Button Grid.Row="2" Grid.Column="3" Text="Limpiar" Command="{Binding LimpiarCommand}" />
+            </Grid>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+
+</ContentPage>
